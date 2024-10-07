@@ -7,3 +7,8 @@ import org.gradle.kotlin.dsl.*
  *  las dependencias necesarias (en este caso solo kotlin-stdlib).
  *  Para ello, utiliza el metodo Project.dependencies.add().
  */
+fun Project.kotlinProject() {
+    dependencies {
+        add("implementation", kotlin("stdlib"))
+    }
+}

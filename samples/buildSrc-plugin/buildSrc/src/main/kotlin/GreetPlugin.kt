@@ -9,5 +9,18 @@ import org.gradle.kotlin.dsl.*
  *  En esta, registra una nueva tarea `greet` que implemente en el `doLast` la impresión
  *  del mensaje "I'm <nombre-del-proyecto>".
  */
-class GreetPlugin {
+class GreetPlugin: Plugin<Project> {
+
+    override fun apply(project: Project): Unit = project.run {
+
+        tasks {
+            register("greet") {
+                group = "sample"
+                description = "Prints a description of ${project.name}."
+                doLast {
+                    println("I'm ${project.name}.")
+                }
+            }
+        }
+    }
 }

@@ -17,9 +17,13 @@
 /**
  * TODO: Define una extensión de Project llamada `my` y guardala en la variable del mismo nombre.
  */
-
+val my = extensions.create<MyProjectExtension>("my", project.objects)
 
 /**
  * TODO: registra la tarea `myReport` que imprime el valor de la propiedad `flag` del objeto `my`
  */
-
+tasks.register("myReport") {
+    doLast {
+        println("my.flag = ${my.flag.get()}")
+    }
+}
